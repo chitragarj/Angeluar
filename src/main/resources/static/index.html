@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Hello AngularJS</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+
+	</head>
+	<script type="text/javascript">    	angular.module('app', [])
+.controller('DemoController', function($scope, $http) {
+    $http.get('http://rest-service.guides.spring.io/greeting').
+        then(function(response) {
+            $scope.greeting = response.data;
+        });
+});</script>
+	<body>
+		<div ng-controller="Hello">
+			<p>The ID is {{greeting.id}}</p>
+			<p>The content is {{greeting.content}}</p>
+		</div>
+	</body>
+</html>
